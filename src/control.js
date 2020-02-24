@@ -8,18 +8,30 @@ let fileEndName = [
     '.wxss'
 ]
 
+const fileExists = (path, type) => {
+    return new Promise(resolve => {
+        fileEndName.forEach(item => {
+            fs.access(`${path}${item}`, err => {
+                if(!err){
+                    vscode.window.showErrorMessage(`此${type}的部分或全部文件已存在`);
+                    resolve(false);
+                }
+            });
+        });
+    });
+}
+
 const createPage = url => {
     vscode.window.showInputBox({
         placeHolder: "页面文件名称",
         prompt: "请输入页面文件名称"
     }).then( text => {
-        fileEndName.forEach(item => {
-            fs.access(`${url}/${text}${item}`, err => {
-                if(!err){
-                    vscode.window.showErrorMessage('此Page的部分或全部文件已存在');
-                    return false;
-                }
-            });
+        fileExists(`${url}/${text}`, 'Page').then(res => {
+            // if(){
+
+            // }else{
+
+            // }
         });
         fileEndName.forEach(item => {
             fs.writeFile(`${url}/${text}${item}`, "utf-8", () => {});
