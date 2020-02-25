@@ -50,15 +50,17 @@ const createPage = (url, type) => {
         placeHolder: `${type == 'Page' ? '页面' : '组件'}文件名称`,
         prompt: `请输入${type == 'Page' ? '页面' : '组件'}文件名称`
     }).then( text => {
-        let snippets = type == 'Page' ? pageSnippets : componentSnippets;
-        fileExists(`${url}/${text}`, type).then(res => {
-            if(res){
-                fileEndNames().forEach(item => {
-                    let name = item.replace('.', '');
-                    fs.writeFile(`${url}/${text}${item}`, !!snippets[name] ? snippets[name].body.replace(/\$1/g, `${text}${item}`) : ``, () => {});
-                });
-            }
-        });
+        if(!!text){
+            let snippets = type == 'Page' ? pageSnippets : componentSnippets;
+            fileExists(`${url}/${text}`, type).then(res => {
+                if(res){
+                    fileEndNames().forEach(item => {
+                        let name = item.replace('.', '');
+                        fs.writeFile(`${url}/${text}${item}`, !!snippets[name] ? snippets[name].body.replace(/\$1/g, `${text}${item}`) : ``, () => {});
+                    });
+                }
+            });
+        }
     });
 }
 
@@ -71,7 +73,9 @@ const commands = {
                     placeHolder: "页面所在目录路径",
                     prompt: "请输入页面所在目录路径"
                 }).then( text => {
-                    createPage(text, 'Page');
+                    if(!!text){
+                        createPage(text, 'Page');
+                    }
                 });
             }else{
                 createPage(url.fsPath, 'Page');
@@ -83,7 +87,9 @@ const commands = {
                     placeHolder: "组件所在目录路径",
                     prompt: "请输入组件所在目录路径"
                 }).then( text => {
-                    createPage(text, 'component');
+                    if(!!text){
+                        createPage(text, 'component');
+                    }
                 });
             }else{
                 createPage(url.fsPath, 'component');
