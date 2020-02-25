@@ -1,5 +1,5 @@
 {
-	"name": "Mini-Program-Tool",
+	"name": "VSCode-Mini-App-Tool",
 	"displayName": "小程序工具",
 	"description": "适用于VS Code的微信小程序开发工具",
 	"version": "1.0.2002",
@@ -16,18 +16,37 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "minitool.create.page",
-				"title": "%command.minitool.create.page%",
-				"category": "%category.minitool%"
+				"command": "miniapptool.create.page",
+				"title": "%command.miniapptool.create.page%",
+				"category": "%category.miniapptool%"
+			},
+			{
+				"command": "miniapptool.create.component",
+				"title": "%command.miniapptool.create.component%",
+				"category": "%category.miniapptool%"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
 					"when": "explorerResourceIsFolder == true",
-					"command": "minitool.create.page"
+					"command": "miniapptool.create.page"
+				},
+				{
+					"when": "explorerResourceIsFolder == true",
+					"command": "miniapptool.create.component"
 				}
 			]
+		},
+		"configuration": {
+			"title": "小程序工具",
+			"properties": {
+				"miniAppTool.fileEndName": {
+					"type": "string",
+					"default": "",
+					"description": "设置新建页面和组件时额外生成的文件后缀，如.less，多个后缀用|分隔"
+				}
+			}
 		}
 	},
 	"scripts": {

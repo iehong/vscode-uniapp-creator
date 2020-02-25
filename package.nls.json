@@ -1,4 +1,5 @@
 {
-    "category.minitool": "MiniTool",
-    "command.minitool.create.page": "create mini program page"
+    "category.miniapptool": "miniapptool",
+    "command.miniapptool.create.page": "create mini app page",
+    "command.miniapptool.create.component": "create mini app component"
 }
