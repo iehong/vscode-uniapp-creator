@@ -1,87 +1,36 @@
+const fs = require("fs");
+const path = require("path");
 const snippets = {
-    "wxml": {
-        "body":
-`<!--$1-->
-<text>$1</text>`
-    },
-    "wxss": {
-        "body": "/* $1 */"
-    },
-    "js": {
-        "body": 
-`// $1
-Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
+  wxml: {
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "page/index.wxml"),
+      "utf8"
+    ),
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  wxss: {
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "page/index.wxss"),
+      "utf8"
+    ),
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  js: {
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "page/index.js"),
+      "utf8"
+    ),
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  json: {
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "page/index.json"),
+      "utf8"
+    ),
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  less: {
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "page/index.less"),
+      "utf8"
+    ),
   },
+};
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})`
-    },
-    "json": {
-        "body": 
-`{
-  "usingComponents": {}
-}`
-    }
-}
-
-module.exports = snippets
+module.exports = snippets;

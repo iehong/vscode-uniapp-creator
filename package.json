@@ -1,73 +1,74 @@
 {
-	"name": "VSCode-Mini-App-Tool",
-	"displayName": "小程序工具（Mini App Tool）",
-	"description": "适用于VS Code的微信小程序开发工具",
-	"version": "1.1.2002",
-	"publisher": "bugjun",
-	"engines": {
-		"vscode": "^1.41.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"*"
-	],
-	"main": "./src/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "miniapptool.create.page",
-				"title": "%command.miniapptool.create.page%",
-				"category": "%category.miniapptool%"
-			},
-			{
-				"command": "miniapptool.create.component",
-				"title": "%command.miniapptool.create.component%",
-				"category": "%category.miniapptool%"
-			}
-		],
-		"menus": {
-			"explorer/context": [
-				{
-					"when": "explorerResourceIsFolder == true",
-					"command": "miniapptool.create.page"
-				},
-				{
-					"when": "explorerResourceIsFolder == true",
-					"command": "miniapptool.create.component"
-				}
-			]
-		},
-		"configuration": {
-			"title": "小程序工具",
-			"properties": {
-				"miniAppTool.fileEndName": {
-					"type": "string",
-					"default": "",
-					"description": "设置新建页面和组件时额外生成的文件后缀，如.less，多个后缀用|分隔"
-				}
-			}
-		}
-	},
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.1.1",
-		"@types/mocha": "^7.0.1",
-		"@types/node": "^12.11.7",
-		"@types/vscode": "^1.41.0",
-		"eslint": "^6.8.0",
-		"glob": "^7.1.6",
-		"mocha": "^7.0.1",
-		"typescript": "^3.7.5",
-		"vscode-test": "^1.3.0"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Bug-Jun/vscode-mini-app-tool"
-	}
+  "name": "VSCode-Mini-App-Creator",
+  "displayName": "小程序页面创建工具（Mini App Page Creator）",
+  "description": "适用于VS Code的微信小程序开发工具",
+  "version": "1.0.0",
+  "publisher": "iehong",
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "miniapptool.create.page",
+        "title": "%command.miniapptool.create.page%",
+        "category": "%category.miniapptool%"
+      },
+      {
+        "command": "miniapptool.create.component",
+        "title": "%command.miniapptool.create.component%",
+        "category": "%category.miniapptool%"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder == true",
+          "command": "miniapptool.create.page",
+          "group": "navigation"
+        },
+        {
+          "when": "false",
+          "command": "miniapptool.create.component"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "小程序工具",
+      "properties": {
+        "miniAppTool.fileEndName": {
+          "type": "string",
+          "default": "",
+          "description": "设置新建页面和组件时额外生成的文件后缀，如.less，多个后缀用|分隔"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.41.0",
+    "eslint": "^6.8.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.0.1",
+    "typescript": "^3.7.5",
+    "vscode-test": "^1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iehong/vscode-mini-app-tool"
+  }
 }
