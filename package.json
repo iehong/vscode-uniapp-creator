@@ -1,5 +1,5 @@
 {
-  "name": "VSCode-Mini-App-Creator",
+  "name": "vscode-mini-app-creator",
   "displayName": "小程序页面创建工具（Mini App Page Creator）",
   "description": "适用于VS Code的微信小程序开发工具",
   "version": "1.0.0",
@@ -11,7 +11,7 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "workspaceContains:**/app.json"
   ],
   "main": "./src/extension.js",
   "contributes": {
