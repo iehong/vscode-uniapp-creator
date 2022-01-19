@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "每日简报",
+  "navigationBarTitleText": "title",
   "navigationStyle": "default",
   "enablePullDownRefresh": false,
   "onReachBottomDistance": 50,

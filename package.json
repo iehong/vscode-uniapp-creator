@@ -11,7 +11,8 @@
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:**/app.json"
+    "onLanguage:wxml",
+    "workspaceContains:app.json"
   ],
   "main": "./src/extension.js",
   "contributes": {
@@ -30,7 +31,7 @@
     "menus": {
       "explorer/context": [
         {
-          "when": "explorerResourceIsFolder == true",
+          "when": "explorerResourceIsFolder && vscode-mini-app-tool:init",
           "command": "miniapptool.create.page",
           "group": "navigation"
         },
@@ -40,16 +41,7 @@
         }
       ]
     },
-    "configuration": {
-      "title": "小程序工具",
-      "properties": {
-        "miniAppTool.fileEndName": {
-          "type": "string",
-          "default": "",
-          "description": "设置新建页面和组件时额外生成的文件后缀，如.less，多个后缀用|分隔"
-        }
-      }
-    }
+    "configuration": {}
   },
   "scripts": {
     "lint": "eslint .",

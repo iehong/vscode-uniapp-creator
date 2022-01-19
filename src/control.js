@@ -4,14 +4,15 @@ const pa = require("path");
 const pageSnippets = require("./page-snippets");
 const componentSnippets = require("./component-snippets");
 
-let fileEndName = [".js", ".json", ".wxml", ".wxss", ".less"];
+let fileEndName = [".js", ".json", ".wxml", ".wxss", ".less", ".wxs"];
 
 const fileEndNames = () => {
   let temp = [];
-  let temps = vscode.workspace
-    .getConfiguration()
-    .get("miniAppTool.fileEndName")
-    .split("|");
+  // let temps = vscode.workspace
+  //   .getConfiguration()
+  //   .get("miniAppTool.fileEndName")
+  //   .split("|");
+  let temps = [];
   for (let index = 0; index < fileEndName.length; index++) {
     if (temp.indexOf(fileEndName[index]) == -1) {
       temp.push(fileEndName[index]);
@@ -54,14 +55,8 @@ const createPage = (url, type) => {
   appJson = fs.readFileSync(
     pa.join(proot[0].uri.fsPath, "app.json"),
     "utf-8",
-    (err, data) => {
-      if (err) {
-        vscode.window.showErrorMessage(`根目录没有app.json`);
-        return false;
-      }
-    }
+    () => {}
   );
-  console.log(pa.join(proot[0].uri.fsPath, "app.json"));
   appJson = JSON.parse(appJson);
 
   vscode.window
@@ -92,6 +87,9 @@ const createPage = (url, type) => {
             .split(pa.sep)
             .join("/")
         );
+        appJson.pages.sort((a, b) => {
+          return a.localeCompare(b);
+        });
         fs.writeFile(
           pa.join(proot[0].uri.fsPath, "app.json"),
           JSON.stringify(appJson, null, "\t"),
@@ -141,6 +139,11 @@ const commands = {
 
 const control = {
   activate: (context) => {
+    vscode.commands.executeCommand(
+      "setContext",
+      "vscode-mini-app-tool:init",
+      true
+    );
     Object.keys(commands).map((name) => {
       if (typeof commands[name] == "function") {
         context.subscriptions.push(

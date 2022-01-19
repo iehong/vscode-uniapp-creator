@@ -31,6 +31,12 @@ const snippets = {
       "utf8"
     ),
   },
+  wxs: {
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "page/index.wxs"),
+      "utf8"
+    ),
+  },
 };
 
 module.exports = snippets;
