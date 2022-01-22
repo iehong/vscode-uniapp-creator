@@ -1,2 +1,4 @@
 <wxs module="tools" src="./index.wxs" />
-<view> </view>
+<view class="page">
+  <view> </view>
+</view>

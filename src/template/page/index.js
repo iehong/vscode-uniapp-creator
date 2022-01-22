@@ -1,8 +1,8 @@
-var app = getApp();
+const app = getApp();
 Page({
   data: {},
 
-  onLoad(options) {},
+  onLoad(e) {},
   onReady() {},
   onShow() {},
 
