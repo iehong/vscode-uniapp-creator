@@ -48,16 +48,9 @@ const fileExists = (path, type) => {
 };
 
 const createPage = (url, type) => {
-  var appJson = {};
   var proot = vscode.workspace.workspaceFolders.filter((i) => {
     return pa.join(url).indexOf(pa.join(i.uri.fsPath)) != -1;
   });
-  appJson = fs.readFileSync(
-    pa.join(proot[0].uri.fsPath, "app.json"),
-    "utf-8",
-    () => {}
-  );
-  appJson = JSON.parse(appJson);
 
   vscode.window
     .showInputBox({
@@ -80,21 +73,30 @@ const createPage = (url, type) => {
             });
           }
         });
-        appJson.pages.push(
-          pa
-            .join(url, `${text}/index`)
-            .replace(pa.join(proot[0].uri.fsPath, "/"), "")
-            .split(pa.sep)
-            .join("/")
-        );
-        appJson.pages.sort((a, b) => {
-          return a.localeCompare(b);
-        });
-        fs.writeFile(
-          pa.join(proot[0].uri.fsPath, "app.json"),
-          JSON.stringify(appJson, null, "\t"),
-          () => {}
-        );
+        if (type == "Page") {
+          var appJson = {};
+          appJson = fs.readFileSync(
+            pa.join(proot[0].uri.fsPath, "app.json"),
+            "utf-8",
+            () => {}
+          );
+          appJson = JSON.parse(appJson);
+          appJson.pages.push(
+            pa
+              .join(url, `${text}/index`)
+              .replace(pa.join(proot[0].uri.fsPath, "/"), "")
+              .split(pa.sep)
+              .join("/")
+          );
+          appJson.pages.sort((a, b) => {
+            return a.localeCompare(b);
+          });
+          fs.writeFile(
+            pa.join(proot[0].uri.fsPath, "app.json"),
+            JSON.stringify(appJson, null, "\t"),
+            () => {}
+          );
+        }
       }
     });
 };
