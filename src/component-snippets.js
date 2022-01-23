@@ -1,42 +1,42 @@
 const fs = require("fs");
+const path = require("path");
 
 const snippets = {
   wxml: {
-    body: `<!--$1--><text>$1</text>`,
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "component/index.wxml"),
+      "utf8"
+    ),
   },
   wxss: {
-    body: "/* $1 */",
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "component/index.wxss"),
+      "utf8"
+    ),
   },
   js: {
-    body: `// $1
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
-  }
-})`,
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "component/index.js"),
+      "utf8"
+    ),
   },
   json: {
-    body: `{
-  "component": true,
-  "usingComponents": {}
-}`,
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "component/index.json"),
+      "utf8"
+    ),
+  },
+  wxs: {
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "component/index.wxs"),
+      "utf8"
+    ),
+  },
+  less: {
+    body: fs.readFileSync(
+      path.join(__dirname, "template", "component/index.less"),
+      "utf8"
+    ),
   },
 };
 

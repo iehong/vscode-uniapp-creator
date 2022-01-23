@@ -1,0 +1,4 @@
+<wxs module="tools" src="./index.wxs" />
+<view class="component">
+  <view> </view>
+</view>
