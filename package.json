@@ -2,7 +2,7 @@
   "name": "vscode-mini-app-creator",
   "displayName": "小程序页面/组件创建工具（Mini App Creator）",
   "description": "适用于VSCode的微信小程序开发工具",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "publisher": "iehong",
   "engines": {
     "vscode": "^1.41.0"
