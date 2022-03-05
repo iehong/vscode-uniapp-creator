@@ -2,7 +2,7 @@
   "name": "vscode-vue-creator",
   "displayName": "Vue页面/组件创建工具（Vue Creator）",
   "description": "适用于VSCode的Vue开发工具",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "iehong",
   "engines": {
     "vscode": "^1.41.0"
@@ -11,14 +11,21 @@
     "Other"
   ],
   "activationEvents": [
+    "workspaceContains:src/pages.json",
     "onLanguage:vue"
   ],
   "main": "./src/extension.js",
+  "icon": "icon.png",
   "contributes": {
     "commands": [
       {
         "command": "vue.create.page",
         "title": "%command.vue.create.page%",
+        "category": "%category.vue%"
+      },
+      {
+        "command": "vue.create.component",
+        "title": "%command.vue.create.component%",
         "category": "%category.vue%"
       }
     ],
@@ -27,6 +34,11 @@
         {
           "when": "explorerResourceIsFolder && vscode-vue-creator:init",
           "command": "vue.create.page",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder && vscode-vue-creator:init",
+          "command": "vue.create.component",
           "group": "navigation"
         }
       ]
