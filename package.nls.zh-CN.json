@@ -1,5 +1,5 @@
 {
-  "category.miniapptool": "小程序工具",
-  "command.miniapptool.create.page": "新建小程序页面",
-  "command.miniapptool.create.component": "新建小程序组件"
+  "category.vue": "Vue工具",
+  "command.vue.create.page": "新建Vue页面",
+  "command.vue.create.component": "新建Vue组件"
 }

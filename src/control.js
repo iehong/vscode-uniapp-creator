@@ -4,7 +4,7 @@ const pa = require("path");
 const pageSnippets = require("./page-snippets");
 const componentSnippets = require("./component-snippets");
 
-let fileEndName = [".js", ".json", ".wxml", ".wxss", ".less", ".wxs"];
+let fileEndName = [".vue", ".ts", ".scss"];
 
 const fileEndNames = () => {
   let temp = [];
@@ -143,19 +143,19 @@ const control = {
   activate: (context) => {
     vscode.commands.executeCommand(
       "setContext",
-      "vscode-mini-app-tool:init",
+      "vscode-vue-creator:init",
       true
     );
     Object.keys(commands).map((name) => {
       if (typeof commands[name] == "function") {
         context.subscriptions.push(
-          vscode.commands.registerCommand(`miniapptool.${name}`, commands[name])
+          vscode.commands.registerCommand(`vue.${name}`, commands[name])
         );
       } else if (typeof commands[name] == "object") {
         Object.keys(commands[name]).map((key) => {
           context.subscriptions.push(
             vscode.commands.registerCommand(
-              `miniapptool.${name}.${key}`,
+              `vue.${name}.${key}`,
               commands[name][key]
             )
           );

@@ -1,8 +1,8 @@
 {
-  "name": "vscode-mini-app-creator",
-  "displayName": "小程序页面/组件创建工具（Mini App Creator）",
-  "description": "适用于VSCode的微信小程序开发工具",
-  "version": "1.1.2",
+  "name": "vscode-vue-creator",
+  "displayName": "Vue页面/组件创建工具（Vue Creator）",
+  "description": "适用于VSCode的Vue开发工具",
+  "version": "1.0.0",
   "publisher": "iehong",
   "engines": {
     "vscode": "^1.41.0"
@@ -11,32 +11,32 @@
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:app.json"
+    "onLanguage:vue"
   ],
   "main": "./src/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "miniapptool.create.page",
-        "title": "%command.miniapptool.create.page%",
-        "category": "%category.miniapptool%"
+        "command": "vue.create.page",
+        "title": "%command.vue.create.page%",
+        "category": "%category.vue%"
       },
       {
-        "command": "miniapptool.create.component",
-        "title": "%command.miniapptool.create.component%",
-        "category": "%category.miniapptool%"
+        "command": "vue.create.component",
+        "title": "%command.vue.create.component%",
+        "category": "%category.vue%"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "when": "explorerResourceIsFolder && vscode-mini-app-tool:init",
-          "command": "miniapptool.create.page",
+          "when": "explorerResourceIsFolder && vscode-vue-creator:init",
+          "command": "vue.create.page",
           "group": "navigation"
         },
         {
-          "when": "explorerResourceIsFolder && vscode-mini-app-tool:init",
-          "command": "miniapptool.create.component",
+          "when": "explorerResourceIsFolder && vscode-vue-creator:init",
+          "command": "vue.create.component",
           "group": "navigation"
         }
       ]
@@ -61,6 +61,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iehong/vscode-mini-app-tool"
+    "url": "https://github.com/iehong/vscode-vue-creator"
   }
 }

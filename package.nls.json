@@ -1,5 +1,5 @@
 {
-    "category.miniapptool": "miniapptool",
-    "command.miniapptool.create.page": "create mini app page",
-    "command.miniapptool.create.component": "create mini app component"
+  "category.vue": "vue creator",
+  "command.vue.create.page": "create vue page",
+  "command.vue.create.component": "create vue component"
 }

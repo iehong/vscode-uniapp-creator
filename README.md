@@ -14,7 +14,6 @@
 
 > 在工作区目录右键菜单点击新建小程序页面，生成相关文件
 > 新建页面后，会更新 app.json 重新排序 pages
-> 建议设置 entryPagePath
 
 ## Extension Settings
 

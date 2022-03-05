@@ -1,40 +1,22 @@
-const fs = require("fs");
-const path = require("path");
+const { readFileSync } = require("fs");
+const { join } = require("path");
 
 const snippets = {
-  wxml: {
-    body: fs.readFileSync(
-      path.join(__dirname, "template", "component/index.wxml"),
+  vue: {
+    body: readFileSync(
+      join(__dirname, "template", "component/index.vue"),
       "utf8"
     ),
   },
-  wxss: {
-    body: fs.readFileSync(
-      path.join(__dirname, "template", "component/index.wxss"),
+  ts: {
+    body: readFileSync(
+      join(__dirname, "template", "component/index.ts"),
       "utf8"
     ),
   },
-  js: {
-    body: fs.readFileSync(
-      path.join(__dirname, "template", "component/index.js"),
-      "utf8"
-    ),
-  },
-  json: {
-    body: fs.readFileSync(
-      path.join(__dirname, "template", "component/index.json"),
-      "utf8"
-    ),
-  },
-  wxs: {
-    body: fs.readFileSync(
-      path.join(__dirname, "template", "component/index.wxs"),
-      "utf8"
-    ),
-  },
-  less: {
-    body: fs.readFileSync(
-      path.join(__dirname, "template", "component/index.less"),
+  scss: {
+    body: readFileSync(
+      join(__dirname, "template", "component/index.scss"),
       "utf8"
     ),
   },
