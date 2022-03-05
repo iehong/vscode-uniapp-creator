@@ -1,6 +1,6 @@
 const vscode = require("vscode");
-const fs = require("fs");
-const pa = require("path");
+const { access, mkdirSync, writeFile, readFileSync } = require("fs");
+const { join, sep } = require("path");
 const pageSnippets = require("./page-snippets");
 const componentSnippets = require("./component-snippets");
 
@@ -8,10 +8,6 @@ let fileEndName = [".vue", ".ts", ".scss"];
 
 const fileEndNames = () => {
   let temp = [];
-  // let temps = vscode.workspace
-  //   .getConfiguration()
-  //   .get("miniAppTool.fileEndName")
-  //   .split("|");
   let temps = [];
   for (let index = 0; index < fileEndName.length; index++) {
     if (temp.indexOf(fileEndName[index]) == -1) {
@@ -32,7 +28,7 @@ const fileExists = (path, type) => {
   return new Promise((resolve) => {
     let i = 0;
     fileEndNames().forEach((item) => {
-      fs.access(`${path}${item}`, (err) => {
+      access(`${path}${item}`, (err) => {
         if (!err) {
           vscode.window.showErrorMessage(`此${type}的部分或全部文件已存在`);
           resolve(false);
@@ -49,7 +45,7 @@ const fileExists = (path, type) => {
 
 const createPage = (url, type) => {
   var proot = vscode.workspace.workspaceFolders.filter((i) => {
-    return pa.join(url).indexOf(pa.join(i.uri.fsPath)) != -1;
+    return join(url).indexOf(join(i.uri.fsPath)) != -1;
   });
 
   vscode.window
@@ -57,16 +53,16 @@ const createPage = (url, type) => {
       placeHolder: `${type == "Page" ? "页面" : "组件"}文件名称`,
       prompt: `请输入${type == "Page" ? "页面" : "组件"}文件名称`,
     })
-    .then((text) => {
+    .then(async (text) => {
       if (!!text) {
         let snippets = type == "Page" ? pageSnippets : componentSnippets;
-        fileExists(pa.join(url, `${text}/index`), type).then((res) => {
+        fileExists(join(url, `${text}/index`), type).then((res) => {
           if (res) {
-            fs.mkdirSync(pa.join(url, `${text}`));
+            mkdirSync(join(url, `${text}`));
             fileEndNames().forEach((item) => {
               let name = item.replace(".", "");
-              fs.writeFile(
-                pa.join(url, `${text}/index${item}`),
+              writeFile(
+                join(url, `${text}/index${item}`),
                 !!snippets[name] ? snippets[name].body : ``,
                 () => {}
               );
@@ -74,25 +70,26 @@ const createPage = (url, type) => {
           }
         });
         if (type == "Page") {
+          if (!(await fileExists(join(proot[0].uri.fsPath, "src/pages.json"))))
+            return;
           var appJson = {};
-          appJson = fs.readFileSync(
-            pa.join(proot[0].uri.fsPath, "app.json"),
+          appJson = readFileSync(
+            join(proot[0].uri.fsPath, "src/pages.json"),
             "utf-8",
             () => {}
           );
           appJson = JSON.parse(appJson);
-          appJson.pages.push(
-            pa
-              .join(url, `${text}/index`)
-              .replace(pa.join(proot[0].uri.fsPath, "/"), "")
-              .split(pa.sep)
-              .join("/")
-          );
-          appJson.pages.sort((a, b) => {
-            return a.localeCompare(b);
+          appJson.pages.push({
+            path: join(url, `${text}/index`)
+              .replace(join(proot[0].uri.fsPath, "/src/"), "")
+              .split(sep)
+              .join("/"),
+            style: {
+              navigationBarTitleText: "uni-app",
+            },
           });
-          fs.writeFile(
-            pa.join(proot[0].uri.fsPath, "app.json"),
+          writeFile(
+            join(proot[0].uri.fsPath, "src/pages.json"),
             JSON.stringify(appJson, null, "\t"),
             () => {}
           );

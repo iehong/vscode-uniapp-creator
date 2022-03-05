@@ -20,11 +20,6 @@
         "command": "vue.create.page",
         "title": "%command.vue.create.page%",
         "category": "%category.vue%"
-      },
-      {
-        "command": "vue.create.component",
-        "title": "%command.vue.create.component%",
-        "category": "%category.vue%"
       }
     ],
     "menus": {
@@ -32,11 +27,6 @@
         {
           "when": "explorerResourceIsFolder && vscode-vue-creator:init",
           "command": "vue.create.page",
-          "group": "navigation"
-        },
-        {
-          "when": "explorerResourceIsFolder && vscode-vue-creator:init",
-          "command": "vue.create.component",
           "group": "navigation"
         }
       ]
