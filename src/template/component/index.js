@@ -1,11 +1,11 @@
 export default {
-  onLaunch() {
-    console.log("Component Launch");
+  data() {
+    return {
+      title: "Hello",
+    };
   },
-  onShow() {
-    console.log("Component Show");
+  onLoad() {
+    console.log("Component Load");
   },
-  onHide() {
-    console.log("Component Hide");
-  },
+  methods: {},
 };

@@ -1,11 +1,11 @@
 export default {
-  onLaunch() {
-    console.log("Page Launch");
+  data() {
+    return {
+      title: "Hello",
+    };
   },
-  onShow() {
-    console.log("Page Show");
+  onLoad() {
+    console.log("Page Load");
   },
-  onHide() {
-    console.log("Page Hide");
-  },
+  methods: {},
 };

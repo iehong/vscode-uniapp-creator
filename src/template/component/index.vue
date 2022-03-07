@@ -2,5 +2,7 @@
 <style src="./index.scss" lang="scss" scoped></style>
 
 <template>
-  <view class="page"> </view>
+  <view class="component">
+    {{ title }}
+  </view>
 </template>
