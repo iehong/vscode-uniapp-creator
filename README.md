@@ -1,10 +1,10 @@
 # Vue Creator
 
-适用于 VS Code 的 Vue 开发工具
+适用于 VS Code 的 Vue 开发工具 For VUE V2 and No TS. Good for Uniapp Cli
 
 ## Features
 
-> 目录右键菜单生成页面所需要的文件，包括 ts,vue,sass
+> 目录右键菜单生成页面所需要的文件，包括 js,vue,sass
 
 ## Requirements
 

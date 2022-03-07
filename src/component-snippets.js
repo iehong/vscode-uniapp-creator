@@ -8,9 +8,9 @@ const snippets = {
       "utf8"
     ),
   },
-  ts: {
+  js: {
     body: readFileSync(
-      join(__dirname, "template", "component/index.ts"),
+      join(__dirname, "template", "component/index.js"),
       "utf8"
     ),
   },
