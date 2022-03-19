@@ -5,8 +5,8 @@ const snippets = {
   vue: {
     body: readFileSync(join(__dirname, "template", "page/index.vue"), "utf8"),
   },
-  js: {
-    body: readFileSync(join(__dirname, "template", "page/index.js"), "utf8"),
+  vxml: {
+    body: readFileSync(join(__dirname, "template", "page/index.vxml"), "utf8"),
   },
   scss: {
     body: readFileSync(join(__dirname, "template", "page/index.scss"), "utf8"),

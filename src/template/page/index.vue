@@ -1,8 +1,7 @@
-<script src="./index.js"></script>
+<template src="./index.vxml"></template>
 <style src="./index.scss" lang="scss" scoped></style>
 
-<template>
-  <view class="page">
-    {{ title }}
-  </view>
-</template>
+
+<script setup lang="ts">
+import { } from 'vue'
+</script>

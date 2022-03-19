@@ -4,7 +4,7 @@ const { join, sep } = require("path");
 const pageSnippets = require("./page-snippets");
 const componentSnippets = require("./component-snippets");
 
-let fileEndName = [".vue", ".js", ".scss"];
+let fileEndName = [".vue", ".vxml", ".scss"];
 
 const fileEndNames = () => {
   let temp = [];
@@ -84,6 +84,9 @@ const createPage = (url, type) => {
               .replace(join(proot[0].uri.fsPath, "/src/"), "")
               .split(sep)
               .join("/"),
+            style: {
+              navigationBarTitleText: "uni-app",
+            },
           });
           writeFile(
             join(proot[0].uri.fsPath, "src/pages.json"),
