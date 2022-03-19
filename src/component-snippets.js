@@ -8,9 +8,9 @@ const snippets = {
       "utf8"
     ),
   },
-  vxml: {
+  html: {
     body: readFileSync(
-      join(__dirname, "template", "component/index.vxml"),
+      join(__dirname, "template", "component/index.html"),
       "utf8"
     ),
   },

@@ -1,4 +1,4 @@
-<template src="./index.vxml"></template>
+<template src="./index.html"></template>
 <style src="./index.scss" lang="scss" scoped></style>
 
 

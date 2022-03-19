@@ -2,7 +2,7 @@
   "name": "vscode-vue-creator",
   "displayName": "Vue页面/组件创建工具（Vue Creator）",
   "description": "适用于VSCode的Vue开发工具",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "publisher": "iehong",
   "engines": {
     "vscode": "^1.41.0"
