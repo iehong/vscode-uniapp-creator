@@ -1,5 +1,5 @@
 {
-  "category.vue": "Vue工具",
-  "command.vue.create.page": "新建Vue页面",
-  "command.vue.create.component": "新建Vue组件"
+  "category.uniapp": "UNI工具",
+  "command.uniapp.create.page": "新建UNI页面",
+  "command.uniapp.create.component": "新建UNI组件"
 }

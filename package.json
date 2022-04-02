@@ -1,8 +1,8 @@
 {
-  "name": "vscode-vue-creator",
-  "displayName": "Vue页面/组件创建工具（Vue Creator）",
-  "description": "适用于VSCode的Vue开发工具",
-  "version": "1.0.7",
+  "name": "vscode-uniapp-creator",
+  "displayName": "UNI页面/组件创建工具（UNI Creator）",
+  "description": "适用于VSCode的UNI开发工具",
+  "version": "1.0.0",
   "publisher": "iehong",
   "engines": {
     "vscode": "^1.41.0"
@@ -11,34 +11,34 @@
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:src/pages.json",
-    "workspaceContains:src/manifest.json"
+    "workspaceContains:pages.json",
+    "workspaceContains:manifest.json"
   ],
   "main": "./src/extension.js",
   "icon": "icon.png",
   "contributes": {
     "commands": [
       {
-        "command": "vue.create.page",
-        "title": "%command.vue.create.page%",
-        "category": "%category.vue%"
+        "command": "uniapp.create.page",
+        "title": "%command.uniapp.create.page%",
+        "category": "%category.uniapp%"
       },
       {
-        "command": "vue.create.component",
-        "title": "%command.vue.create.component%",
-        "category": "%category.vue%"
+        "command": "uniapp.create.component",
+        "title": "%command.uniapp.create.component%",
+        "category": "%category.uniapp%"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "when": "explorerResourceIsFolder && vscode-vue-creator:init",
-          "command": "vue.create.page",
+          "when": "explorerResourceIsFolder && vscode-uniapp-creator:init",
+          "command": "uniapp.create.page",
           "group": "navigation"
         },
         {
-          "when": "explorerResourceIsFolder && vscode-vue-creator:init",
-          "command": "vue.create.component",
+          "when": "explorerResourceIsFolder && vscode-uniapp-creator:init",
+          "command": "uniapp.create.component",
           "group": "navigation"
         }
       ]
@@ -63,6 +63,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iehong/vscode-vue-creator"
+    "url": "https://github.com/iehong/vscode-uniapp-creator"
   }
 }

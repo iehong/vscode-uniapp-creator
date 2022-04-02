@@ -1,5 +1,5 @@
 {
-  "category.vue": "vue creator",
-  "command.vue.create.page": "create vue page",
-  "command.vue.create.component": "create vue component"
+  "category.uniapp": "UNI creator",
+  "command.uniapp.create.page": "create UNI page",
+  "command.uniapp.create.component": "create UNI component"
 }

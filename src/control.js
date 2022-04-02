@@ -70,18 +70,18 @@ const createPage = (url, type) => {
           }
         });
         if (type == "Page") {
-          if (!(await fileExists(join(proot[0].uri.fsPath, "src/pages.json"))))
+          if (!(await fileExists(join(proot[0].uri.fsPath, "pages.json"))))
             return;
           var appJson = {};
           appJson = readFileSync(
-            join(proot[0].uri.fsPath, "src/pages.json"),
+            join(proot[0].uri.fsPath, "pages.json"),
             "utf-8",
             () => {}
           );
           appJson = JSON.parse(appJson);
           appJson.pages.push({
             path: join(url, `${text}/index`)
-              .replace(join(proot[0].uri.fsPath, "/src/"), "")
+              .replace(join(proot[0].uri.fsPath, "/"), "")
               .split(sep)
               .join("/"),
             style: {
@@ -89,7 +89,7 @@ const createPage = (url, type) => {
             },
           });
           writeFile(
-            join(proot[0].uri.fsPath, "src/pages.json"),
+            join(proot[0].uri.fsPath, "pages.json"),
             JSON.stringify(appJson, null, "\t"),
             () => {}
           );
@@ -140,19 +140,19 @@ const control = {
   activate: (context) => {
     vscode.commands.executeCommand(
       "setContext",
-      "vscode-vue-creator:init",
+      "vscode-uniapp-creator:init",
       true
     );
     Object.keys(commands).map((name) => {
       if (typeof commands[name] == "function") {
         context.subscriptions.push(
-          vscode.commands.registerCommand(`vue.${name}`, commands[name])
+          vscode.commands.registerCommand(`uniapp.${name}`, commands[name])
         );
       } else if (typeof commands[name] == "object") {
         Object.keys(commands[name]).map((key) => {
           context.subscriptions.push(
             vscode.commands.registerCommand(
-              `vue.${name}.${key}`,
+              `uniapp.${name}.${key}`,
               commands[name][key]
             )
           );

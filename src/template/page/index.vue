@@ -2,6 +2,18 @@
 <style src="./index.scss" lang="scss" scoped></style>
 
 
-<script setup lang="ts">
-import { } from 'vue'
+<script>
+export default {
+  data() {
+    return {
+      titile: 'title'
+    }
+  },
+  onLoad(e) {
+
+  },
+  methods: {
+
+  }
+}
 </script>
