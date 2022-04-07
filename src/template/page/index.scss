@@ -1,6 +1,8 @@
 .page {
   width: 100vw;
-  height: 100vh;
+  max-width: 500px;
+  margin: auto;
+  height: calc(100vh - var(--window-top));
   background-color: white;
   display: flex;
   flex-direction: column;
