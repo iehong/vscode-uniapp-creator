@@ -14,9 +14,9 @@ const snippets = {
       "utf8"
     ),
   },
-  scss: {
+  less: {
     body: readFileSync(
-      join(__dirname, "template", "component/index.scss"),
+      join(__dirname, "template", "component/index.less"),
       "utf8"
     ),
   },

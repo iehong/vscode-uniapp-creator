@@ -4,7 +4,7 @@ const { join, sep } = require("path");
 const pageSnippets = require("./page-snippets");
 const componentSnippets = require("./component-snippets");
 
-let fileEndName = [".vue", ".html", ".scss"];
+let fileEndName = [".vue", ".html", ".less"];
 
 const fileEndNames = () => {
   let temp = [];

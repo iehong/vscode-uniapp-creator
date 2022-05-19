@@ -2,7 +2,7 @@
   "name": "vscode-uniapp-creator",
   "displayName": "UNI页面/组件创建工具（UNI Creator）",
   "description": "适用于VSCode的UNI开发工具",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "iehong",
   "engines": {
     "vscode": "^1.41.0"

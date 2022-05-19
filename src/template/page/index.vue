@@ -1,19 +1,14 @@
 <template src="./index.html"></template>
-<style src="./index.scss" lang="scss" scoped></style>
-
+<style src="./index.less" lang="less" scoped></style>
 
 <script>
 export default {
   data() {
     return {
-      titile: 'title'
-    }
+      titile: "title",
+    };
   },
-  onLoad(e) {
-
-  },
-  methods: {
-
-  }
-}
+  onLoad(e) {},
+  methods: {},
+};
 </script>
